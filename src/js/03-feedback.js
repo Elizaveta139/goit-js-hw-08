@@ -38,6 +38,10 @@ function onFormSubmit(evt) {
 
   console.log({ email: form.email.value, message: form.message.value });
 
+  if (form.email.value === '' || form.message.value === '') {
+    return alert('Please fill in all fields');
+  }
+
   evt.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
 }
@@ -49,5 +53,7 @@ function onPageRefresh() {
     const ParseSavedData = JSON.parse(savedData);
     form.email.value = ParseSavedData.email || '';
     form.message.value = ParseSavedData.message || '';
+    formData.email = ParseSavedData.email || '';
+    formData.message = ParseSavedData.message || '';
   }
 }
