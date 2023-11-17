@@ -17,15 +17,6 @@ onPageRefresh();
 // Отримання значень + в локальне сховище
 
 function onFormData(evt) {
-  //   // const message = evt.currentTarget.value;
-  //   const email = form.querySelector('.feedback-form input').value;
-  //   const message = form.querySelector('.feedback-form textarea').value;
-
-  //   // Створити об'єкт зі значеннями полів форми
-  //   const formData = {
-  //     email,
-  //     message,
-  //   };
   formData[evt.target.name] = evt.target.value;
   //   console.log(formData);
 
@@ -36,14 +27,14 @@ function onFormData(evt) {
 function onFormSubmit(evt) {
   evt.preventDefault();
 
-  console.log({ email: form.email.value, message: form.message.value });
-
   if (form.email.value === '' || form.message.value === '') {
     return alert('Please fill in all fields');
   }
 
-  evt.currentTarget.reset();
+  console.log({ email: form.email.value, message: form.message.value });
+
   localStorage.removeItem(STORAGE_KEY);
+  evt.currentTarget.reset();
 }
 
 // // // оновлення сторінки
